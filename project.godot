@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="godot-3d-fantasy"
+config/name="godot-3d-google-maps-import"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 

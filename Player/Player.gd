@@ -25,16 +25,15 @@ func _physics_process(delta):
 	var zMovement:float = Input.get_action_strength("backward") - Input.get_action_strength("forward")
 	var xMovement:float = Input.get_action_strength("right") - Input.get_action_strength("left")
 		
-	var newVector:Vector3 = Vector3(xMovement, 0, zMovement).normalized() * 20
+	var newVector:Vector3 = Vector3(xMovement, 0, zMovement).normalized() * 200
 	
 	newVector = transform.basis.xform(newVector)
 	
 		
-	if !is_on_floor():
-		newVector.y = gravity
-	else:
-		if Input.is_action_just_pressed("jump"):
-			newVector.y = 5000
+	newVector.y = gravity
+		
+	if Input.is_action_pressed("jump"):
+		newVector.y = 500
 		
 	newVector = lerp(currentVector, newVector, 0.1)
 	currentVector = move_and_slide(newVector, Vector3.UP)
